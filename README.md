@@ -1,1 +1,1 @@
-# js-array-objects-carousel
+# js-array-carousel
