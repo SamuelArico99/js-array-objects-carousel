@@ -5,7 +5,6 @@ const images = [
     "img/04.webp",
     "img/05.webp"
 ]
-
 const carouselElement = document.querySelector('.carousel');
 
 
@@ -29,14 +28,17 @@ const nextArrow = document.querySelector('.next');
 nextArrow.addEventListener('click',
 
       function () {
-        allSlides[currentSlide].classList.remove('current');
-        currentSlide = currentSlide + 1;
-        allSlides[currentSlide].classList.add('current');
-        if (currentSlide == allSlides.length -1) {
-            nextArrow.classList.add('hidden');
 
+        allSlides[currentSlide].classList.remove('current');
+        
+        if (currentSlide == allSlides.length -1) {
+          currentSlide = 0;
         }
-        prevArrow.classList.remove('hidden');
+        else{
+          currentSlide = currentSlide + 1;
+        }
+
+        allSlides[currentSlide].classList.add('current');
       }
  
 );
@@ -47,13 +49,13 @@ prevArrow.addEventListener('click',
 
       function () {
         allSlides[currentSlide].classList.remove('current');
-        currentSlide = currentSlide - 1;
-        allSlides[currentSlide].classList.add('current');
         if (currentSlide == 0) {
-            prevArrow.classList.add('hidden');
-
+          currentSlide = allSlides.length - 1;
         }
-        nextArrow.classList.remove('hidden');
+        else{
+          currentSlide = currentSlide - 1;
+        }
+        allSlides[currentSlide].classList.add('current');
       }
  
 );
